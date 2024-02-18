@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ClientCard from "../components/ClientCard.astro";
 import Next from "../icons/Next.astro";
 import Prev from "../icons/Prev.astro";
 import Male from "../icons/Male.astro";
@@ -8,12 +9,14 @@ import Female from "../icons/Female.astro";
 
 <Layout title="Scroll-01">
   <main
-    class="flex m-auto text-white text-xl w-screen h-screen p-4 align-middle justify-center"
+    class="flex mx-auto text-white text-xl w-screen h-screen p-4 align-middle justify-center"
   >
     <container
       class="bg-gray-400 w-3/4 bg-opacity-25 rounded-xl hover:bg-opacity-35 transition ease-in-out"
     >
-      <section class="relative inline-flex gap-2 snap-start w-full flex-wrap">
+      <section
+        class="relative inline-flex p-4 gap-2 snap-start w-full flex-wrap"
+      >
         <!--SECCIÓN BOTONES-->
         <a
           href="#"
@@ -39,60 +42,17 @@ import Female from "../icons/Female.astro";
           ><Next /></button
         >
       </section>
-      <section class="flex gap-4 py-4 w-full flex-row overflow-auto">
+      <section
+        class="databank my-2 px-2 flex gap-4 py-4 w-full flex-row overflow-auto"
+      >
         <!--DATOS-->
-        <a
-          href="#male-1"
-          class="flex appearance-none text-decoration[none] relative
-        bg-blue-500 p-4 rounded-2xl h-52 transition[all 0.2s ease-in-out] flex:[0
-        0 13rem] cursor-pointer flex-col justify-between snap-start"
-          ><Male
-            class="flex object-cover rounded-xl h-12 min-w-12 w-12 border[1px solid bg-blue-200]"
-          />
-          <div>
-            <h2>1215.25</h2>
-            <div class="flex size-3 font-normal text-zinc-300">USD</div>
-          </div>
-        </a>
-        <a
-          href="#female-1"
-          class="flex appearance-none text-decoration[none] relative
-        bg-red-500 p-4 rounded-2xl h-52 transition[all 0.2s ease-in-out] flex:[0
-        0 13rem] cursor-pointer flex-col justify-between snap-start"
-          ><Female
-            class="flex object-cover rounded-xl h-12 min-w-12 w-12 border[1px solid bg-blue-200]"
-          />
-          <div>
-            <h2>1215.25</h2>
-            <div class="flex size-3 font-normal text-zinc-300">USD</div>
-          </div>
-        </a>
-        <a
-          href="#male-2"
-          class="flex appearance-none text-decoration[none] relative
-        bg-blue-500 p-4 rounded-2xl h-52 transition[all 0.2s ease-in-out] flex:[0
-        0 13rem] cursor-pointer flex-col justify-between snap-start"
-          ><Male
-            class="flex object-cover rounded-xl h-12 min-w-12 w-12 border[1px solid bg-blue-200]"
-          />
-          <div>
-            <h2>1215.25</h2>
-            <div class="flex size-3 font-normal text-zinc-300">USD</div>
-          </div>
-        </a>
-        <a
-          href="#female-2"
-          class="flex appearance-none text-decoration[none] relative
-        bg-red-500 p-4 rounded-2xl h-52 transition[all 0.2s ease-in-out] flex:[0
-        0 13rem] cursor-pointer flex-col justify-between snap-start"
-          ><Female
-            class="flex object-cover rounded-xl h-12 min-w-12 w-12 border[1px solid bg-blue-200]"
-          />
-          <div>
-            <h2>1215.25</h2>
-            <div class="flex size-3 font-normal text-zinc-300">USD</div>
-          </div>
-        </a>
+        <ClientCard title="#male-1" type={0}><Male /></ClientCard>
+        <ClientCard title="#female-1" type={1}><Female /></ClientCard>
+        <ClientCard title="#male-2" type={0}><Male /></ClientCard>
+        <ClientCard title="#female-2" type={1}><Female /></ClientCard>
+        <ClientCard title="#male-3" type={0}><Male /></ClientCard>
+        <ClientCard title="#male-4" type={0}><Male /></ClientCard>
+        <ClientCard title="#female-3" type={1}><Female /></ClientCard>
       </section>
     </container>
   </main>
@@ -147,6 +107,15 @@ import Female from "../icons/Female.astro";
       grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
       gap: 2rem;
       padding: 0;
+    }
+    .databank::-webkit-scrollbar {
+      height: 0.6rem;
+      background: #9c9c9c;
+      border-radius: 10rem;
+    }
+    .databank::-webkit-scrollbar-thumb {
+      background: #99baef;
+      border-radius: 10rem;
     }
   </style>
 </Layout>

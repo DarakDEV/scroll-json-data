@@ -1,0 +1,32 @@
+---
+import Male from "../icons/Male.astro";
+import Female from "../icons/Female.astro";
+
+interface Props {
+  title: string;
+  type: number;
+}
+
+const { title, type } = Astro.props;
+---
+
+<a
+  href={title}
+  class:list={[
+    "flex appearance-none text-decoration[none] relative p-4 min-w-40 rounded-2xl h-52 transition ease-in-out flex:[0 0 13rem] cursor-pointer flex-col justify-between snap-start hover:scale-105",
+    {
+      "bg-blue-500": type == 0,
+      "bg-red-500": type == 1,
+    },
+  ]}
+  ,
+  ><slot
+    class="flex object-cover rounded-xl h-12 min-w-12 w-12 border[1px solid bg-blue-200]"
+  />
+  <div>
+    <h2 class="flex size-6 font-bold overflow-wrap[normal] whitespace-nowrap">
+      1215.25
+    </h2>
+    <div class="flex size-3 font-normal text-zinc-300">USD</div>
+  </div>
+</a>
